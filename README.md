@@ -57,6 +57,6 @@ Important: Every caching node must be a unique "identification", if not the cach
 
 Important 2: The cache it's shared with all workflows, as long as you use the same "original_image" and "identification"
 
-To see this example workflow, just download it here:
+To see this example workflow, just download it here: https://github.com/alastor-666-1933/caching_to_not_waste/blob/master/examples/workflow.json
 
 Now, go be happy! \😈/
