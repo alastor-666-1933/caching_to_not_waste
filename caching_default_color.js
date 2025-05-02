@@ -11,7 +11,7 @@ app.registerExtension({
 	      "Caching Controlnet Image to not Waste",
 	      "Caching Image to not Waste",
 	      "Caching Mask to not Waste",
-	      "Caching Text to not Waste"
+	      "Caching Text to not Waste",
 	    ];
 
 	    if (customNodes.includes(node?.title)) {

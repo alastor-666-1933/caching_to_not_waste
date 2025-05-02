@@ -12,10 +12,10 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "caching_controlnet": "Caching Controlnet Image to not Waste",
-    "caching_image":      "Caching Image to not Waste",
-    "caching_mask":       "Caching Mask to not Waste",
-    "caching_text":       "Caching Text to not Waste",
+    "caching_controlnet":       "Caching Controlnet Image to not Waste",
+    "caching_image":            "Caching Image to not Waste",
+    "caching_mask":             "Caching Mask to not Waste",
+    "caching_text":             "Caching Text to not Waste",
 }
 
 WEB_DIRECTORY = "."
