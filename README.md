@@ -10,7 +10,7 @@ This node was built to cache all repetitive things that can be reused in a workf
 
 But, what is a cache?
 
-If you don't know, a cache it's a temporary memory used to access things used with high frequency. 
+If you don't know, a cache it's a temporary kind of memory/file/storage used to access things used with high frequency.
 
 Eg: Imagine you want to find milk inside your refrigerator. So you open the refrigerator door, look for the milk, and close it. Do you notice that opening, looking for, and closing the refrigerator door costs time and effort? 
 
@@ -37,7 +37,7 @@ Enough to resize images every run. Enough to generate an openpose, depthmap, can
 After that, my workflow decreased from 40 seconds to 13 seconds! Sixty-seven fucking percent less than time! And better, if you're like me, and have a lot of pre-ready prompts to inpaint this same image, if you run all in one shot, the time decrease to about 8 seconds by generation! Eighty fucking percent of time savings!
 
 
-Take a look at the above workflow. The first time it runs, it resizes the image, generates an openpose image, generates a text from MiaoshouAI Tagger, segments, and combines 12 masks. On my machine, this execution takes 20 seconds. But after the first run, with all these steps cached, it takes only 0.3 seconds to finish! 
+Take a look at the bellow workflow. The first time it runs, it resizes the image, generates an openpose image, generates a text from MiaoshouAI Tagger, segments, and combines 12 masks. On my machine, this execution takes 20 seconds. But after the first run, with all these steps cached, it takes only 0.3 seconds to finish!
 
 This is magic! The magic of saving 19.7 seconds on every run of inpaint you would perform with this image!
 
