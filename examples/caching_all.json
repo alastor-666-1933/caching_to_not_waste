@@ -1,0 +1,1154 @@
+{
+  "last_node_id": 23,
+  "last_link_id": 32,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "ImageResize+",
+      "pos": [
+        -220,
+        -150
+      ],
+      "size": [
+        300,
+        218
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        0,
+        "lanczos",
+        "keep proportion",
+        "always",
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        -620,
+        -270
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            4
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "00105-307166887.png",
+        "image"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "GroundingDinoModelLoader (segment anything)",
+      "pos": [
+        800,
+        -150
+      ],
+      "size": [
+        400,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "GROUNDING_DINO_MODEL",
+          "type": "GROUNDING_DINO_MODEL",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GroundingDinoModelLoader (segment anything)"
+      },
+      "widgets_values": [
+        "GroundingDINO_SwinT_OGC (694MB)"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "caching_mask",
+      "pos": [
+        1800,
+        -170
+      ],
+      "size": [
+        340,
+        126
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "executor",
+          "type": "MASK",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cached_mask",
+          "type": "MASK",
+          "links": [
+            10
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "caching_mask"
+      },
+      "widgets_values": [
+        "mask",
+        "red",
+        false
+      ],
+      "color": "rgb(204, 134, 0)",
+      "bgcolor": "rgba(204, 134, 0, 0.1)",
+      "boxcolor": "rgb(204, 134, 0)"
+    },
+    {
+      "id": 13,
+      "type": "Miaoshouai_Tagger",
+      "pos": [
+        1300,
+        50
+      ],
+      "size": [
+        400,
+        400
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16,
+          "shape": 7
+        },
+        {
+          "name": "filenames",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "filenames"
+          },
+          "shape": 7
+        },
+        {
+          "name": "captions",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "captions"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "filenames",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "captions",
+          "type": "STRING",
+          "links": [
+            14
+          ],
+          "slot_index": 2,
+          "shape": 6
+        },
+        {
+          "name": "folder_path",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Miaoshouai_Tagger"
+      },
+      "widgets_values": [
+        "promptgen_base_v2.0",
+        "Path to your image folder",
+        "extra_mixed",
+        1024,
+        4,
+        "never",
+        "",
+        "",
+        "",
+        "",
+        "replace_tags eg:search1:replace1;search2:replace2"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "PreviewImage",
+      "pos": [
+        2200,
+        570
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "PreviewImage",
+      "pos": [
+        2200,
+        880
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "SAMModelLoader (segment anything)",
+      "pos": [
+        800,
+        -270
+      ],
+      "size": [
+        400,
+        60
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAMModelLoader (segment anything)"
+      },
+      "widgets_values": [
+        "sam_vit_b (375MB)"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "OpenposePreprocessor",
+      "pos": [
+        1300,
+        570
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "POSE_KEYPOINT",
+          "type": "POSE_KEYPOINT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OpenposePreprocessor"
+      },
+      "widgets_values": [
+        "enable",
+        "enable",
+        "enable",
+        512,
+        "disable"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "DepthAnythingV2Preprocessor",
+      "pos": [
+        1300,
+        880
+      ],
+      "size": [
+        300,
+        82
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingV2Preprocessor"
+      },
+      "widgets_values": [
+        "depth_anything_v2_vits.pth",
+        512
+      ]
+    },
+    {
+      "id": 14,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        2200,
+        160
+      ],
+      "size": [
+        400,
+        350
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 15,
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Display Any (rgthree)"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 10,
+      "type": "MaskPreview+",
+      "pos": [
+        2200,
+        -150
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "caching_text",
+      "pos": [
+        1770,
+        140
+      ],
+      "size": [
+        300,
+        102
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 27
+        },
+        {
+          "name": "executor",
+          "type": "STRING",
+          "link": 14,
+          "widget": {
+            "name": "executor"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cached_text",
+          "type": "STRING",
+          "links": [
+            15
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "caching_text"
+      },
+      "widgets_values": [
+        "text",
+        "",
+        false
+      ],
+      "color": "rgb(204, 134, 0)",
+      "bgcolor": "rgba(204, 134, 0, 0.1)",
+      "boxcolor": "rgb(204, 134, 0)"
+    },
+    {
+      "id": 18,
+      "type": "caching_controlnet",
+      "pos": [
+        1800,
+        550
+      ],
+      "size": [
+        320.79998779296875,
+        102
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 28
+        },
+        {
+          "name": "executor",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cached_controlnet_image",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "caching_controlnet"
+      },
+      "widgets_values": [
+        "openpose",
+        false
+      ],
+      "color": "rgb(204, 134, 0)",
+      "bgcolor": "rgba(204, 134, 0, 0.1)",
+      "boxcolor": "rgb(204, 134, 0)"
+    },
+    {
+      "id": 17,
+      "type": "caching_controlnet",
+      "pos": [
+        1800,
+        860
+      ],
+      "size": [
+        320.79998779296875,
+        102
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "name": "executor",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cached_controlnet_image",
+          "type": "IMAGE",
+          "links": [
+            23
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "caching_controlnet"
+      },
+      "widgets_values": [
+        "depth",
+        false
+      ],
+      "color": "rgb(204, 134, 0)",
+      "bgcolor": "rgba(204, 134, 0, 0.1)",
+      "boxcolor": "rgb(204, 134, 0)"
+    },
+    {
+      "id": 2,
+      "type": "PreviewImage",
+      "pos": [
+        560,
+        -450
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 1,
+      "type": "caching_image",
+      "pos": [
+        180,
+        -270
+      ],
+      "size": [
+        300,
+        102
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "executor",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cached_image",
+          "type": "IMAGE",
+          "links": [
+            3,
+            11
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "caching_image"
+      },
+      "widgets_values": [
+        "SOURCE_0_ORIGINAL_512",
+        true
+      ],
+      "color": "#e09a14",
+      "bgcolor": "#cc8600",
+      "boxcolor": "#cc8600"
+    },
+    {
+      "id": 11,
+      "type": "Reroute",
+      "pos": [
+        800,
+        100
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            12,
+            13,
+            16,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 8,
+      "type": "GroundingDinoSAMSegment (segment anything)",
+      "pos": [
+        1300,
+        -170
+      ],
+      "size": [
+        352.79998779296875,
+        122
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sam_model",
+          "type": "SAM_MODEL",
+          "link": 5
+        },
+        {
+          "name": "grounding_dino_model",
+          "type": "GROUNDING_DINO_MODEL",
+          "link": 6
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            31
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            9
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GroundingDinoSAMSegment (segment anything)"
+      },
+      "widgets_values": [
+        "dress",
+        0.35000000000000003
+      ]
+    },
+    {
+      "id": 22,
+      "type": "caching_image",
+      "pos": [
+        1800,
+        -350
+      ],
+      "size": [
+        340,
+        102
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 30
+        },
+        {
+          "name": "executor",
+          "type": "IMAGE",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cached_image",
+          "type": "IMAGE",
+          "links": [
+            32
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "caching_image"
+      },
+      "widgets_values": [
+        "mask_img",
+        true
+      ],
+      "color": "#e09a14",
+      "bgcolor": "#cc8600",
+      "boxcolor": "#cc8600"
+    },
+    {
+      "id": 23,
+      "type": "PreviewImage",
+      "pos": [
+        2200,
+        -460
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      3,
+      0,
+      1,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      1,
+      1,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      4,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      5,
+      0,
+      8,
+      0,
+      "SAM_MODEL"
+    ],
+    [
+      6,
+      6,
+      0,
+      8,
+      1,
+      "GROUNDING_DINO_MODEL"
+    ],
+    [
+      9,
+      8,
+      1,
+      9,
+      1,
+      "MASK"
+    ],
+    [
+      10,
+      9,
+      1,
+      10,
+      0,
+      "MASK"
+    ],
+    [
+      11,
+      1,
+      1,
+      11,
+      0,
+      "*"
+    ],
+    [
+      12,
+      11,
+      0,
+      8,
+      2,
+      "IMAGE"
+    ],
+    [
+      13,
+      11,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      13,
+      2,
+      12,
+      1,
+      "STRING"
+    ],
+    [
+      15,
+      12,
+      1,
+      14,
+      0,
+      "*"
+    ],
+    [
+      16,
+      11,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      21,
+      0,
+      17,
+      1,
+      "IMAGE"
+    ],
+    [
+      21,
+      15,
+      0,
+      18,
+      1,
+      "IMAGE"
+    ],
+    [
+      22,
+      18,
+      1,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      17,
+      1,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      11,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      11,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      11,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      11,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      11,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      11,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      8,
+      0,
+      22,
+      1,
+      "IMAGE"
+    ],
+    [
+      32,
+      22,
+      1,
+      23,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.42409761837248483,
+      "offset": [
+        1848.4062835415157,
+        684.5388107086958
+      ]
+    },
+    "node_versions": {
+      "comfyui_essentials": "1.1.0",
+      "comfy-core": "0.3.14",
+      "comfyui_segment_anything": "ab6395596399d5048639cdab7e44ec9fae857a93",
+      "caching_to_not_waste": "2384c5d078bdb32aa1cd7cc37d00718a454649e4",
+      "ComfyUI-Miaoshouai-Tagger": "8b824de674096e43f9bd0a5811a10306ea8ef379",
+      "comfyui_controlnet_aux": "1.0.5",
+      "rgthree-comfy": "5d771b8b56a343c24a26e8cea1f0c87c3d58102f"
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
