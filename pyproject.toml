@@ -1,7 +1,7 @@
 [project]
 name = "caching_to_not_waste"
-description = "This node allows you to cache/caching/store and reuse resized images, ControlNet images, masks, and texts. It avoids repeating heavy operations by loading previously saved files — accelerating generation process, saving time, memory, and processing power in future executions.."
-version = "1.0.0"
+description = "This node allows you to cache/caching/store and reuse resized images, ControlNet images, masks, and texts. It avoids repeating heavy operations by loading previously saved files — accelerating generation process, saving time, memory, and processing power in future executions."
+version = "1.0.1"
 license = {file = "LICENSE"}
 
 [project.urls]
