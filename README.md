@@ -46,7 +46,7 @@ After that, my workflow (take a look at its size below) decreased from 40 second
 Take a look at the workflow below. The first time it runs, it resizes the image, generates an openpose image, generates a text from MiaoshouAI Tagger, segments, and combines 12 masks. On my machine, this execution takes 20 seconds. But after the first run, with all these steps cached, it takes only 0.3 seconds to finish!
 
 <center>
-<img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/workflow.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/test.png" width="100%"/>
 </center>
 
 This is magic! The magic of saving 19.7 seconds on every run of inpaint you would perform with this image!
