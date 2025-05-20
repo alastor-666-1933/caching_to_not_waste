@@ -77,6 +77,12 @@ To see example workflows, just download it here: https://github.com/alastor-666-
 <img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/caching_text.png" width="100%"/>
 </center>
 
+### Caching Prompt/Conditioning
+
+<center>
+<img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/caching_conditioning.png" width="100%"/>
+</center>
+
 ### Caching Masks
 
 <center>
