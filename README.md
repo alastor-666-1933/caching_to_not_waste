@@ -69,6 +69,14 @@ Important 2: The cache it's shared with all workflows, as long as you use the sa
 
 To see example workflows, just download it here: https://github.com/alastor-666-1933/caching_to_not_waste/tree/master/examples
 
+## Settings
+
+By default, the node never will delete cached files. But, if you want to configure an auto delete period, you can do it on the ComfyUi Settings.
+
+<center>
+<img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/settings.png" width="100%"/>
+</center>
+
 ## Examples
 
 ### Caching Text
@@ -99,6 +107,15 @@ To see example workflows, just download it here: https://github.com/alastor-666-
 
 <center>
 <img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/caching_controlnet.png" width="100%"/>
+</center>
+
+
+### Caching Combined Images
+
+Sometimes cache only makes sense based on two different images, like an overlay, by eg. For this case, you can use the "Caching Combined Image to not Waste" node to utilize two images for identifying the cached image.
+
+<center>
+<img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/caching_combined_image.png" width="100%"/>
 </center>
 
 ### All Caching working together
