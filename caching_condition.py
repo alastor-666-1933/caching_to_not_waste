@@ -1,7 +1,7 @@
 import os
 import torch
 import hashlib
-import numpy as np
+# import numpy as np
 import folder_paths
 from pathlib import Path
 from .config import CACHE_DIR

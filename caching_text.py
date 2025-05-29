@@ -4,8 +4,8 @@ import hashlib
 import numpy as np
 import folder_paths
 from pathlib import Path
-from typing import Iterable
-from PIL import Image, ImageOps
+# from typing import Iterable
+# from PIL import Image, ImageOps
 from .config import CACHE_DIR
 from .functions import AlwaysEqualProxy, compare_revision
 

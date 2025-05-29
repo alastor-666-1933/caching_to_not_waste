@@ -13,6 +13,7 @@ app.registerExtension({
 	      "Caching Mask to not Waste",
 	      "Caching Text to not Waste",
 	      "Caching Conditioning to not Waste",
+	      "Caching Combined Image to not Waste",
 	    ];
 
 	    if (customNodes.includes(node?.title)) {
@@ -23,6 +24,6 @@ app.registerExtension({
 	    }
 
 	    console.log("[ColorNodes] Node estilizado:", node.title);
-	    delete ext.nodeCreated;
+	    // delete ext.nodeCreated;
 	  }
 })
