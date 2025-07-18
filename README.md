@@ -79,6 +79,22 @@ By default, the node never will delete cached files. But, if you want to configu
 
 ## Examples
 
+### Caching Wildcard List
+
+Ok, I made this node because none of the other wildcard nodes that I found, do what I want. First, all of them give almost no information on where you need to put the wildcard file, and you discover that it's a challenge. Second, all of them work with the entire prompt and use the same seed to draft one option, so if you want to draft different options for each __wildcard__ of your prompt, it's impossible.
+
+So to facilitate:
+
+Put your .YAML wild card file in folder **ComfyuiFolder/wildcards**
+To use, you must put the name of the wildcard file into the node to indicate what wildcard you want to use.
+
+
+This wildcard node doesn't depend on the current seed, because it will draft a different option of your wildcard for each line of your prompt.
+
+<center>
+<img src="https://raw.githubusercontent.com/alastor-666-1933/caching_to_not_waste/refs/heads/master/examples/wildcards.png" width="100%"/>
+</center>
+
 ### Caching Text
 
 <center>
