@@ -14,6 +14,7 @@ app.registerExtension({
 	      "Caching Text to not Waste",
 	      "Caching Conditioning to not Waste",
 	      "Caching Combined Image to not Waste",
+	      "Caching Wildcard List",
 	    ];
 
 	    if (customNodes.includes(node?.title)) {
