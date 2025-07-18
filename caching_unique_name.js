@@ -19,21 +19,20 @@ const TARGET_NODE_NAMES = new Set([
 	"Caching Combined Image to not Waste",
 ]);
 
-
 app.registerExtension({
 	name: "caching.to.not.waste.unique.name",
 	async setup() {
 		console.log("Caching to not waste unique name node, ready!")
 	},
 	async nodeCreated(node, app) {
-		console.log(node)
-		console.log(
-			node?.title,
-			!TARGET_NODE_NAMES.has(node?.title))
+		// console.log(TARGET_NODE_NAMES)
+		// console.log(
+		// 	node?.title,
+		// 	!TARGET_NODE_NAMES.has(node?.title))
 
 		if (!TARGET_NODE_NAMES.has(node?.title)) return;
 
-		console.log("[identification watcher] node created:", node);
+		// console.log("[identification watcher] node created:", node);
 
 		const idWidget = node.widgets?.find(w => w.name === "identification");
 		if (idWidget) {
@@ -54,7 +53,6 @@ app.registerExtension({
 
 function ensureUniqueIdentification(targetNode) {
 	const allNodes = app.graph._nodes;
-	console.log('caralho => ', targetNode.title);
 	const currentType = targetNode.title;
 
 	const nodesOfSameType = allNodes.filter(n => n.title === currentType && n !== targetNode);
